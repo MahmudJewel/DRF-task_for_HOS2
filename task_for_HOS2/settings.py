@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     
     # external app
     'authentication.apps.AuthenticationConfig',
+    'subscribe.apps.SubscribeConfig',
 ]
 
 # for customized user 
