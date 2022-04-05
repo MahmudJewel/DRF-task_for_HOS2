@@ -2,7 +2,7 @@ from django.shortcuts import render
 from subscribe.models import Subscribe, Company, Phone_number, Company_Phone_List
 from rest_framework.permissions import IsAuthenticated,IsAdminUser
 from django.contrib.auth import get_user_model
-from subscribe.serializers import SubscribeSerializer
+from subscribe.serializers import SubscribeSerializer, CompanySerializer
 from rest_framework import viewsets
 from rest_framework import generics,status
 from rest_framework.views import APIView
@@ -25,3 +25,8 @@ class SubscribeViewset(viewsets.ModelViewSet):
 		new_obj.save()
 		serializer = SubscribeSerializer(new_obj)
 		return Response(serializer.data)
+
+# company added by admin
+class CompanyViewset(viewsets.ModelViewSet):
+	serializer_class = CompanySerializer
+	queryset = Company.objects.all()
