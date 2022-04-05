@@ -5,7 +5,7 @@ from django.contrib.auth import get_user_model
 User=get_user_model()
 
 
-# sunscriptions table for fixed plans
+# subscriptions table for fixed plans
 class Subscribe(models.Model):
     planList=[('Bronze', 'Globalnet Bronze'),
                 ('Silver', 'Globalnet Silver'),
