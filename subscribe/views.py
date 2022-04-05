@@ -2,7 +2,7 @@ from django.shortcuts import render
 from subscribe.models import Subscribe, Company, Phone_number, Company_Phone_List
 from rest_framework.permissions import IsAuthenticated,IsAdminUser
 from django.contrib.auth import get_user_model
-from subscribe.serializers import SubscribeSerializer, CompanySerializer
+from subscribe.serializers import SubscribeSerializer, CompanySerializer,Company_Phone_ListSerializer
 from rest_framework import viewsets
 from rest_framework import generics,status
 from rest_framework.views import APIView
@@ -30,3 +30,8 @@ class SubscribeViewset(viewsets.ModelViewSet):
 class CompanyViewset(viewsets.ModelViewSet):
 	serializer_class = CompanySerializer
 	queryset = Company.objects.all()
+
+# This will add multiple phone numbers for specific company
+class Company_Phone_ListViewset(viewsets.ModelViewSet):
+	serializer_class = Company_Phone_ListSerializer
+	queryset = Company_Phone_List.objects.all()
